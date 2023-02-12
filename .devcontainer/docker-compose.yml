@@ -1,0 +1,14 @@
+version: "3"
+services:
+  ask-openai-in-slack:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+      args:
+        WORKDIR: /project
+    volumes:
+      - ..:/project
+    image: ask-openai-in-slack-image
+    container_name: ask-openai-in-slack
+    tty: true
+    env_file: ../.env

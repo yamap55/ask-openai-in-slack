@@ -1,0 +1,74 @@
+// ref. https://github.com/Microsoft/vscode-remote-try-python
+{
+  "name": "ask-openai-in-slack",
+  // Use docker-compose.extend.yml to run a command that keeps the container running.
+  "dockerComposeFile": [
+    "./docker-compose.yml"
+  ],
+  "service": "ask-openai-in-slack",
+  "workspaceFolder": "/project",
+  "shutdownAction": "stopCompose",
+  // Use 'settings' to set *default* container specific settings.json values on container create.
+  // You can edit these settings after create using File > Preferences > Settings > Remote.
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "cSpell.words": [
+          "deno",
+          "devcontainer",
+          "openai"
+        ],
+        "cSpell.ignorePaths": [
+          "package-lock.json",
+          "node_modules",
+          "vscode-extension",
+          ".git/objects",
+          ".vscode",
+          ".vscode-insiders",
+          ".devcontainer"
+        ],
+        "deno.enable": true,
+        "deno.lint": true,
+        "deno.unstable": true,
+        "deno.suggest.imports.hosts": {
+          "https://deno.land": false
+        },
+        "editor.tabSize": 2,
+        "files.eol": "\n",
+        "files.insertFinalNewline": true,
+        "files.trimTrailingWhitespace": true,
+        "terminal.integrated.profiles.linux": {
+          "bash": {
+            "path": "/bin/bash"
+          }
+        },
+        "vsintellicode.modify.editor.suggestSelection": "enabled",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+          "source.organizeImports": true
+        },
+        "[json]": {
+          "editor.tabSize": 2
+        },
+        "[yaml]": {
+          "editor.tabSize": 2
+        },
+        "[typescript]": {
+          "editor.formatOnSave": true,
+          "editor.defaultFormatter": "denoland.vscode-deno"
+        }
+      },
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "denoland.vscode-deno",
+        "esbenp.prettier-vscode",
+        "eamodio.gitlens",
+        "VisualStudioExptTeam.vscodeintellicode",
+        "exiasr.hadolint",
+        "usernamehw.errorlens",
+        "streetsidesoftware.code-spell-checker"
+      ]
+      // "postStartCommand": ""
+    }
+  }
+}
